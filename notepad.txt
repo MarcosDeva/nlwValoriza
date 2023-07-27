@@ -1,0 +1,58 @@
+29:59
+
+npm install -g yarn // no terminal como adm
+
+//inicia o proketo
+yarn init -y
+
+//adiciona o typescript
+yarn add typescript -D
+
+//cria arquivo tsc para configuramos
+yarn tsc --init
+
+//Dentro do tsconfig.json altre  "strict": true,  para false
+
+//converter o ts para js 
+yarn tsc
+
+//Adiciona express
+yarn add express
+
+//Adiciona como dependencia para usar as tipagens
+yarn add @types/express -D
+
+//Automatiza o processo, pega o codigo ts e convete js automatico
+yarn add ts-node-dev -D
+
+/*
+ no arquivo parckage.json, abaixo do "lisence" 
+ assim pega o arquivo para automatizar
+
+  "scripts": {
+    "dev":"ts-node-dev src/server.ts"
+  },
+
+*/
+//para rodar 
+yarn dev
+
+
+npm install typeorm --save
+npm install reflect-metadata --save
+npm install @types/node --save-dev
+
+Bancos que podem ser escolihos 
+//sqlite3
+npm install sqlite3 --save
+
+//Mysql
+npm install mysql --save
+
+ tsconfig.json:
+"emitDecoratorMetadata": true,
+"experimentalDecorators": true,
+
+migrations  e onde fica as alterações dos bancos
+
+yarn typeorm migration:create -n CreateUsers
