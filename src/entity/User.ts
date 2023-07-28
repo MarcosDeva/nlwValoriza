@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Compliment } from "./Compliment";
 
 @Entity('Users')
 export class User {
@@ -24,4 +25,6 @@ export class User {
     @CreateDateColumn()
     updated_at: Date
 
+    @OneToMany(() => Compliment, (compliment) => compliment.id)
+    compliment: Compliment
 }
