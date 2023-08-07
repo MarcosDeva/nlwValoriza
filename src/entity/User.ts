@@ -1,30 +1,42 @@
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Compliment } from "./Compliment";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { v4 as uuid } from "uuid";
 
+// yarn add uuid
+// yarn add @types/uuid -D
+//uuid v4 é gerado
 @Entity('Users')
 export class User {
-
-    @PrimaryGeneratedColumn()
-    id: number
+    @PrimaryColumn()
+    readonly id: string;
+    // @PrimaryGeneratedColumn()
+    // id: number
 
     @Column({ type: 'text'})
-    name: string
+    name: string;
 
     @Column({ type: 'text' })
-    email: string
+    email: string;
 
     @Column({ type: 'text'})
-    password: string
+    password: string;
 
-    @Column({ type: 'text'})
-    admin: string
-
-    @CreateDateColumn()
-    created_at: Date
+    @Column({ type: 'boolean'})
+    admin: Boolean;
 
     @CreateDateColumn()
-    updated_at: Date
+    created_at: Date;
 
-    @OneToMany(() => Compliment, (compliment) => compliment.id)
-    compliment: Compliment
+    @UpdateDateColumn()
+    updated_at: Date;
+
+    // @OneToMany(() => Compliment, (compliment) => compliment.id)
+    // compliment: Compliment
+
+    constructor(){
+        //verifico se o id existe se não existir eu crio um id
+        if(!this.id){
+            this.id = uuid();
+        }
+    }
+
 }
