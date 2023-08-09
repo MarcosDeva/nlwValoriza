@@ -1,4 +1,4 @@
-29:59
+1:17  video 2
 
 npm install -g yarn // no terminal como adm
 
