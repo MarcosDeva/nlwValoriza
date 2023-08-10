@@ -1,7 +1,5 @@
 import { ComplimentsRepositories } from "../repositories/ComplimentsRepositories";
 
-
-
 class ListUserReceiveComplimentsService {
   async execute(user_id: string) {
    
