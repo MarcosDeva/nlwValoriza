@@ -1,7 +1,7 @@
-import { Repository, EntityRepository } from "typeorm";
+
+import { AppDataSource } from "../data-source";
 import { Compliment } from "../entities/Compliment";
 
-@EntityRepository(Compliment)
-class ComplimentsRepositories extends Repository<Compliment> {}
+export const ComplimentsRepositories = AppDataSource.getRepository(Compliment);
 
-export { ComplimentsRepositories };
+
