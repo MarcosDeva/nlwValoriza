@@ -1,5 +1,4 @@
 import { ComplimentsRepositories } from "../repositories/ComplimentsRepositories";
-import { UsersRepositories } from "../repositories/UsersRepositories";
 
 interface IComplimentRequest {
   tag_id: string;
@@ -20,8 +19,8 @@ class CreateComplimentService {
       throw new Error("Incorrect User Receiver");
     }
 
-    const userReceiverExists = await UsersRepositories.findOne(user_receiver);
-
+    // const userReceiverExists = await UsersRepositories.findOne(user_receiver);
+       const userReceiverExists = await ComplimentsRepositories.findOneBy({ user_receiver })
     if (!userReceiverExists) {
       throw new Error("User Receiver does not exists!");
     }
