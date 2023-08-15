@@ -1,10 +1,14 @@
 import express, { NextFunction, Request, Response } from 'express'
+import "express-async-errors";
+import cors from "cors";
 import { AppDataSource } from './data-source'
 import { router } from './routes'
 
 
 AppDataSource.initialize().then(() => {
 	const app = express()
+
+  app.use(cors());
 
 	app.use(express.json())
 
@@ -26,5 +30,5 @@ AppDataSource.initialize().then(() => {
   );
   
 
-	return app.listen(process.env.PORT)
+	return app.listen(3000);
 })
